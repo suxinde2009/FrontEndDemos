@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+
+<body>
+    <div id="app">
+        {{info.name}}
+    </div>
+
+    <script src="./lib/vue.min.js"></script>
+    <script src="./lib/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script>
+
+        import AXIOS from "./lib/axios.min"
+
+        var vm = new Vue({
+            el: "#app",
+           
+            data() {
+                info: {
+                    key: null,
+                    value: null,
+                },
+            },
+            mounted () {
+                axios.get("../res/data.json").then(response => (this.info=response.data))
+            }
+
+
+        });
+    </script>
+
+
+</body>
+
+</html>

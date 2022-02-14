@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <li v-for="(item, index) in items">{{index}} --- {{item.key}}:{{item.name}}</li>
+    </div>
+
+    <script src="./lib/vue.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                items: [
+                    {
+                        key: "ak1",
+                        name: "he",    
+                    },
+                    {
+                        key: "ak2",
+                        name: "she",    
+                    },
+                ]
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

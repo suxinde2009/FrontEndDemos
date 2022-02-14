@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+
+<body>
+    <div id="app">
+        
+       <gogo v-for="item in items" v-bind:param1="item"></gogo>
+
+    </div>
+
+    <script src="./lib/vue.min.js"></script>
+    <script>
+
+       Vue.component("gogo", {
+           props: ['param1'],
+           template: '<li>{{param1}}</li>'    
+       });
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+               items: ["a", "b", "c"]
+            },
+            methods: {
+                sayHi: function(event) {
+                    alert(this.message)
+                }
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

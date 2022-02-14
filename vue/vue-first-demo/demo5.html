@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+
+<body>
+    <div id="app">
+        
+        Input some text: <input type="text" v-model="message"> {{message}}
+        <br/>
+        <br/>
+        Input other text: <textarea type="text" v-model="message"></textarea>
+       
+        <br/>
+        <br/>
+
+        Gender
+        <input type="radio" name="gender" value="man" v-model="gender">Man
+        <input type="radio" name="gender" value="woman" v-model="gender">Woman
+        <br/>
+        Selected: {{gender}}
+
+        <br/>
+        <br/>
+
+        <select name="" id="" v-model="selectedValue">
+            <option value="" disabled>--Please pick one--</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+        </select>
+        Selected: {{selectedValue}}
+
+    </div>
+
+    <script src="./lib/vue.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message: "123",
+                checked: true,
+                gender: "",
+                selectedValue: "B"
+
+            },
+            methods: {
+                sayHi: function(event) {
+                    alert(this.message)
+                }
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
