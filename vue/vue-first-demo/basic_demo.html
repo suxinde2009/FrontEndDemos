@@ -10,41 +10,46 @@
     <div id="event-handling">
         <p>{{ message }}</p>
         <button v-on:click="reverseMessage">反转 Message</button>
-      </div>
-      
+    </div>
 
-    <div id="counter">
-        Counter: {{ counter }}
+    <div id="two-way-binding">
+        <p>{{ message }}</p>
+        <input v-model="message" />
     </div>
 
 
     <script src="./lib/vue.min.js"></script>
     <script>
         var vm = new Vue({
-            el: "#app",
+            el: "#event-handling",
             data: {
                 message: "Hello, vue",
                 desc: "detail"
-            }
-        });
+            },
 
 
-
-        const Counter = {
             data() {
                 return {
-                    counter: 0
+                    message: 'Hellow Vue.js'
                 }
             },
 
-            mounted() {
-                setInterval(() => {
-                    this.counter++;
-                }, 1000)
+            methods: {
+                reverseMessage: function () {
+                    this.message = this.message.split('').reverse().join('')
+                }
             },
-        };
+        });
 
-        Vue.createApp(Counter).mount('#counter')
+
+        var twoWayBinding = new Vue({
+            el: "#two-way-binding",
+            data() {
+                return {
+                    message: 'Hello Vue'
+                }
+            },
+        });
 
     </script>
 
