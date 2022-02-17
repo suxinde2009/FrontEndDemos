@@ -7,11 +7,11 @@
 </head>
 
 <body>
-    <div id="app">
-        <span v-bind:title="desc">Description Demo</span>
-        <br />
-        {{message}}
-    </div>
+    <div id="event-handling">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">反转 Message</button>
+      </div>
+      
 
     <div id="counter">
         Counter: {{ counter }}
@@ -29,8 +29,8 @@
         });
 
 
-        var counter_instance = new Vue({
-            el: "#counter",
+
+        const Counter = {
             data() {
                 return {
                     counter: 0
@@ -42,7 +42,9 @@
                     this.counter++;
                 }, 1000)
             },
-        });
+        };
+
+        Vue.createApp(Counter).mount('#counter')
 
     </script>
 
